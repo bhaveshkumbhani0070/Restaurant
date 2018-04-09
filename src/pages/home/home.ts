@@ -20,7 +20,17 @@ import {DomSanitizer} from '@angular/platform-browser';
 export class HomePage {
   Arr = Array; //Array type captured in a variable
   num:number = 8;
-  banners: any = [];
+  // banners: any = [];
+  banners=[
+    {"banner_image":"assets/imgs/slider1.png"},
+    {"banner_image":"assets/imgs/slider2.png"},
+    {"banner_image":"assets/imgs/slider3.png"},
+    {"banner_image":"assets/imgs/slider4.png"},
+    {"banner_image":"assets/imgs/slider5.png"},
+    {"banner_image":"assets/imgs/slider6.png"},
+    {"banner_image":"assets/imgs/slider7.png"},
+  ];
+
   errorMessage: string;
   loading:any;
   
@@ -40,7 +50,7 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    this.showLoader();
+    // this.showLoader();
   }
 
   optionsPopover(event) {
@@ -50,16 +60,17 @@ export class HomePage {
        });
   }
   getBanners() {
-    this.home.getBanners()
-       .subscribe(
-         banners => {
-          this.loading.dismiss()          
-          this.banners = banners
-         },
-         error =>  {
-          this.loading.dismiss()  
-          this.presentToast();
-         });
+    // this.home.getBanners()
+    //    .subscribe(
+    //      banners => {
+    //        console.log('banners',banners);
+    //       this.loading.dismiss()          
+    //       this.banners = banners
+    //      },
+    //      error =>  {
+    //       this.loading.dismiss()  
+    //       this.presentToast();
+    //      });
   }
 
   sanitize(url:string){

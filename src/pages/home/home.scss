@@ -1,3 +1,7 @@
+.card-md {
+    margin: 0px !important;
+}
+
 page-home {
     ion-card {
         img {
@@ -9,7 +13,7 @@ page-home {
         background: url('../assets/imgs/map2.png') no-repeat center center fixed;
     }
     .slider {
-        height: 45%;
+        height: 36%;
     }
     .swiper-pagination-bullet-active {
         background: color($colors, gray) !important;
@@ -19,7 +23,7 @@ page-home {
         background: red !important;
     }
     .gridback {
-        margin-top: 1px;
+        margin-top: 0px;
         //   background: url('../assets/imgs/map2.png') no-repeat center center fixed; 
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -28,14 +32,13 @@ page-home {
     }
     .options {
         background-color: rgba(193, 28, 28, 0.7);
-        border-top: 4px solid white;
-        height: 95%;
+        border: 2px solid white;
+        height: 100%;
         text-align: center;
-        padding-top: 2%;
         position: relative;
-        width: 48vw !important;
-        left: calc(-50vw + 96%);
-        margin-top: 4px;
+        width: 183px !important;
+        left: calc(-180px + 99%);
+        margin-top: 0px;
     }
     // .grid[no-padding] > .row > .col {
     //   //  padding: 0;
