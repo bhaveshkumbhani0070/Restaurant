@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the NotificationsPage page.
+ * Generated class for the OurEventsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-notifications',
-  templateUrl: 'notifications.html',
+  selector: 'page-our-events',
+  templateUrl: 'our-events.html',
 })
-export class NotificationsPage {
+export class OurEventsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad NotificationsPage');
+    console.log('ionViewDidLoad OurEventsPage');
   }
 
 }

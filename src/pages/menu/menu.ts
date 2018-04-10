@@ -24,17 +24,16 @@ export class MenuPage {
   @ViewChild(Nav) nav: Nav;
  
   pages: PageInterface[] = [
-    { title: 'Reserve-Table', pageName: 'RequestFlightPage',  icon: 'md-jet' },
-    { title: 'My Reservations', pageName: 'MyBookingsPage', icon: 'calendar' },
-    // { title: 'My Flying Hours', pageName: 'MyBookingsPage', index: 1, icon: 'md-list-box' },
-    { title: 'My Account', pageName: 'NotificationsPage', tabComponent: 'NotificationsPage', index: 3, icon: 'md-notifications-outline' },
-    { title: 'Our Offers', pageName: 'PromotionPage',  icon: 'md-star-outline' },
-    { title: 'Notifications', pageName: 'PackagePage',  icon: 'md-document' },
-    { title: 'Our Events', pageName: 'NotificationsPage', tabComponent: 'NotificationsPage', index: 3, icon: 'md-notifications-outline' },
-    { title: 'Social Feeds', pageName: 'PromotionPage',  icon: 'md-star-outline' },
-    { title: 'Refer A Friend', pageName: 'PackagePage',  icon: 'md-document' },
-    { title: 'Locate Us', pageName: 'PackagePage',  icon: 'md-document' },
-  //  { title: 'User Login', pageName: 'LoginPage',  icon: 'md-log-in' },
+    // , tabComponent: 'NotificationsPage', index: 3,
+    { title: 'Reserve-Table', pageName: 'ReserveTablePage',  icon: 'md-jet' },
+    { title: 'My Reservations', pageName: 'MyReservationsPage', icon: 'calendar' },
+    { title: 'My Account', pageName: 'MyAccountPage', icon: 'md-notifications-outline' },
+    { title: 'Our Offers', pageName: 'OurOffersPage',  icon: 'md-star-outline' },
+    { title: 'Notifications', pageName: 'NotificationsPage',  icon: 'md-document' },
+    { title: 'Our Events', pageName: 'OurEventsPage',  icon: 'md-notifications-outline' },
+    { title: 'Social Feeds', pageName: 'SocialFeedsPage',  icon: 'md-star-outline' },
+    { title: 'Refer A Friend', pageName: 'ReferFriendPage',  icon: 'md-document' },
+    { title: 'Locate Us', pageName: 'LocateUsPage',  icon: 'md-document' }
   ];
 
 

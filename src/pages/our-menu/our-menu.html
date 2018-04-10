@@ -1,0 +1,63 @@
+<!--
+  Generated template for the OurMenuPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+
+        <ion-title text-center>
+            <!-- <img alt="logo" height="35" src="assets/imgs/navbar.png"> -->
+            <span>OUR MENU</span>
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="optionsPopover($event)">
+                <ion-icon name="ios-notifications-outline"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <div>
+        <ion-segment [(ngModel)]="menu">
+            <ion-segment-button value="food">
+                FOOD MENU
+            </ion-segment-button>
+            <ion-segment-button value="bar">
+                BAR MENU
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+
+    <!-- *ngIf="auth.isAuthenticated()" -->
+    <div [ngSwitch]="menu">
+        <ion-list *ngSwitchCase="'food'">
+            <!-- <p>food</p> -->
+            <div>
+                <img src="assets/imgs/menu1.png">
+                <img src="assets/imgs/menu2.png">
+                <img src="assets/imgs/menu3.png">
+                <img src="assets/imgs/menu4.png">
+                <img src="assets/imgs/menu5.png">
+                <img src="assets/imgs/menu6.png">
+                <img src="assets/imgs/menu7.png">
+            </div>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'bar'">
+            <div>
+                <img src="assets/imgs/bar1.png">
+                <img src="assets/imgs/bar2.png">
+                <img src="assets/imgs/bar3.png">
+                <img src="assets/imgs/bar4.png">
+                <img src="assets/imgs/bar5.png">
+                <img src="assets/imgs/bar6.png">
+                <img src="assets/imgs/bar7.png">
+            </div>
+        </ion-list>
+    </div>
+</ion-content>

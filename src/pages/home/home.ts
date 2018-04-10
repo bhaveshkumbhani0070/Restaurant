@@ -35,15 +35,16 @@ export class HomePage {
   loading:any;
   
 
-  requestFlight = 'RequestFlightPage';
-  airplaneMenu = 'AirplaneMenuPage';
-  package = 'PackagePage';
-  enquiry = 'EnquiryPage';
-  howWorks = 'HowWorksPage';
-  tips = 'TipsPage';
+  reserveTablePage = 'ReserveTablePage';
+  tackAwayPage = 'TackAwayPage';
+  ourOffersPage = 'OurOffersPage';
+  ourEventsPage = 'OurEventsPage';
+  contactUsPage = 'ContactUsPage';
+  referFriendPage = 'ReferFriendPage';
+  ourReviewsPage = 'OurReviewsPage';
+  
   offerPage = 'PromotionPage';
-  myAccount = 'FlyingHoursPage';
-  bookingPage = 'MyBookingsPage';
+  ourMenuPage = 'OurMenuPage';
 
   constructor(private toastCtrl: ToastController , public home: HomeServiceProvider,private sanitizer:DomSanitizer,private loadingCtrl: LoadingController, private popoverCtrl: PopoverController) {
     this.getBanners()
