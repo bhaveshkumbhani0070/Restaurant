@@ -6,13 +6,38 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>my-reservations</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>MY RESERVATIONS</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    <div>
+        <ion-segment [(ngModel)]="reservation">
+            <ion-segment-button value="history">
+                HISTORY
+            </ion-segment-button>
+            <ion-segment-button value="upcoming">
+                UPCOMING
+            </ion-segment-button>
+        </ion-segment>
+    </div>
 
+    <!-- *ngIf="auth.isAuthenticated()" -->
+    <div [ngSwitch]="menu">
+        <ion-list *ngSwitchCase="'history'">
+            <!-- <p>food</p> -->
+            <div>
+                <button *ngIf="!auth.isAuthenticated()" ion-button (click)="pushPage()" class="submit-btn" full>Login to access this section</button>
+            </div>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'upcoming'">
+            <div>
+                <button *ngIf="!auth.isAuthenticated()" ion-button (click)="pushPage()" class="submit-btn" full>Login to access this section</button>
+            </div>
+        </ion-list>
+    </div>
 </ion-content>

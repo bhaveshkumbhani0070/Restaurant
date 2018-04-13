@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the OurEventsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { App, ViewController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -15,11 +9,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class OurEventsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public viewCtrl: ViewController,
+    public appCtrl: App) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OurEventsPage');
   }
-
+  // redirectMe(){
+  //   this.navCtrl.push(ReserveTablePage);
+  // }
+  pushPage() {
+    this.viewCtrl.dismiss();
+    this.appCtrl.getRootNav().push('ReserveTablePage');
+  }
 }

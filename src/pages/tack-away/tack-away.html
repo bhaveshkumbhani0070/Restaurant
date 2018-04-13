@@ -6,13 +6,14 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>tack-away</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>TAKE AWAY ORDER</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    <button *ngIf="!auth.isAuthenticated()" ion-button (click)="pushPage()" class="submit-btn" full>Login to access this section</button>
 
 </ion-content>

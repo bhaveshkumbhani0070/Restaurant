@@ -1,5 +1,6 @@
+import { HomeServiceProvider } from '../../providers/home-service/home-service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, LoadingController, NavController, NavParams, ToastController, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the MyAccountPage page.
@@ -14,12 +15,55 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'my-account.html',
 })
 export class MyAccountPage {
+  model: any = {}
+  loading:any;
+  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public home: HomeServiceProvider, private loadingCtrl: LoadingController, private toastCtrl: ToastController ) {
+  }
+
+  closeModal() {
+    this.viewCtrl.dismiss();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MyAccountPage');
+    console.log('ionViewDidLoad RequestAccountPage');
+  }
+
+  sendEnquiry(){
+    this.showLoader()
+    this.home.requestAccount(this.model).subscribe((data)=>{
+      this.loading.dismiss()  
+      this.presentToast('Account request has been sent!')  
+      this.viewCtrl.dismiss();
+      console.log(data) 
+    },error =>{
+      this.loading.dismiss() 
+      this.presentToast('Something went wrong try again!')       
+      console.log(error)
+    })
+  }
+
+  showLoader(){
+    this.loading = this.loadingCtrl.create({
+        content: ''
+    });
+
+    this.loading.present();
+  }
+
+  presentToast(data) {
+    let toast = this.toastCtrl.create({
+      message: data,
+      duration: 4000,
+      position: 'bottom',
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
   }
 
 }

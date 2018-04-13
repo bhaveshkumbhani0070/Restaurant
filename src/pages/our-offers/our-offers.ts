@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { App, ViewController } from 'ionic-angular';
 
-/**
- * Generated class for the OurOffersPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,11 +10,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class OurOffersPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public viewCtrl: ViewController,
+    public appCtrl: App) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OurOffersPage');
   }
 
+  pushPage() {
+    this.viewCtrl.dismiss();
+    this.appCtrl.getRootNav().push('ReserveTablePage');
+  }
 }
