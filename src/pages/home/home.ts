@@ -2,14 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, LoadingController, PopoverController, ToastController } from 'ionic-angular';
 import { HomeServiceProvider } from '../../providers/home-service/home-service';
 import {DomSanitizer} from '@angular/platform-browser';
-
-
-/**
- * Generated class for the HomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { NavController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -46,7 +39,15 @@ export class HomePage {
   offerPage = 'PromotionPage';
   ourMenuPage = 'OurMenuPage';
 
-  constructor(private toastCtrl: ToastController , public home: HomeServiceProvider,private sanitizer:DomSanitizer,private loadingCtrl: LoadingController, private popoverCtrl: PopoverController) {
+  
+  constructor(
+    private toastCtrl: ToastController , 
+    public home: HomeServiceProvider,
+    private sanitizer:DomSanitizer,
+    private loadingCtrl: LoadingController, 
+    private popoverCtrl: PopoverController,
+    public navCtrl: NavController
+  ) {
     this.getBanners()
   }
 

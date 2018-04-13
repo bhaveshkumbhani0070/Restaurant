@@ -34,8 +34,7 @@ export class ContactUsPage {
                 name: '',
                 email: '',
                 txt: ''
-            }
-          
+            }          
   }
 
   ionViewDidLoad() {

@@ -7,7 +7,7 @@ import { AccordionComponent } from './accordion';
         AccordionComponent,
     ],
     imports: [
-        IonicPageModule.forChild(AccordionComponent),
+        IonicPageModule.forChild(AccordionComponent)
     ],
     exports: [
         AccordionComponent

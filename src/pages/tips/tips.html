@@ -1,10 +1,15 @@
 <ion-header>
     <ion-navbar color="primary">
-        <ion-title>FLYING TIPS</ion-title>
+        <button ion-button menuToggle start>
+                                        <ion-icon name="ios-menu-outline"></ion-icon>
+                                    </button>
+        <ion-title text-center>
+            <span>FLYING TIPS</span>
+        </ion-title>
         <ion-buttons end>
             <button ion-button icon-only (click)="optionsPopover($event)">
-                <ion-icon name="ios-notifications-outline"></ion-icon>
-            </button>
+                                      <ion-icon name="ios-notifications-outline"></ion-icon>
+                                  </button>
         </ion-buttons>
     </ion-navbar>
 </ion-header>

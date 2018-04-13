@@ -7,33 +7,78 @@
 <ion-header>
     <ion-navbar color="primary">
         <button ion-button menuToggle start>
-                <ion-icon name="ios-menu-outline"></ion-icon>
+            <ion-icon name="ios-menu-outline"></ion-icon>
         </button>
         <ion-title text-center>
-            <!-- <img alt="logo" height="35" src="assets/imgs/navbar.png"> -->
             <span>RESERVE TABLE</span>
         </ion-title>
         <ion-buttons end>
             <button ion-button icon-only (click)="optionsPopover($event)">
-              <ion-icon name="ios-notifications-outline"></ion-icon>
-          </button>
+                <ion-icon name="ios-notifications-outline"></ion-icon>
+            </button>
         </ion-buttons>
     </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-    <!-- <ion-list *ngIf='data.length > 0'>
-        <div *ngFor="let item of data">
-            <ion-card (click)="expandItem(item)">
-                <ion-card-header>
-                    <p float-left>{{item.airplane_name}}</p>
-                    <p float-right>{{item.number_of_seat}} Seats</p>
-                </ion-card-header>
-                <accordion [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
-                    <img [src]="item.airplane_photo" style="width: 100vw !important; ">
+    <ion-list>
+        <button ion-button (click)="expandItem()" class="submit-btn" full>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <ion-icon name="md-calendar"></ion-icon>                
+                    </ion-col>
+                    <ion-col>
+                        Enter Reservation Details
+                    </ion-col>
+                    <ion-col>
+                        <ion-icon name="md-add"></ion-icon>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </button>
+
+        <div>
+            <ion-card>
+                <accordion [expandHeight]="itemExpandHeight" [expanded]="expandedItem">
+                    <form (ngSubmit)="sendEnquiry();enquiryForm.reset()" #enquiryForm="ngForm">
+                        <ion-item>
+                            <ion-label color="primary" floating>
+                                Full Name
+                            </ion-label>
+                            <ion-input name="name" type="text" required [(ngModel)]="model.name" #name></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label color="primary" floating>
+                                Number of seats
+                            </ion-label>
+                            <ion-input name="seats" type="text" required [(ngModel)]="model.seats" #name></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label color="primary" floating>
+                                Date
+                            </ion-label>
+                            <ion-datetime name="date" required displayFormat="MMM DD, YYYY" [(ngModel)]="model.date" #name>
+                            </ion-datetime>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label color="primary" floating>
+                                Time
+                            </ion-label>
+                            <ion-datetime name="time" required displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="model.time" #name>
+                            </ion-datetime>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label color="primary" floating>
+                                Additional Requirement
+                            </ion-label>
+                            <ion-input name="requirement" type="text" required [(ngModel)]="model.requirement" #name></ion-input>
+                        </ion-item>
+                        <button ion-button class="submit-btn" full [disabled]="!enquiryForm.form.valid">SEND ENQUIRY</button>
+                    </form>
                 </accordion>
             </ion-card>
         </div>
-    </ion-list> -->
+    </ion-list>
 </ion-content>

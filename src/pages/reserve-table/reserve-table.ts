@@ -22,23 +22,23 @@ export class ReserveTablePage {
   errorMessage: string;
   newUrl:string;
   loading:any;
-  
+  model:any={};  
 
-  constructor(private toastCtrl: ToastController ,public airplaneMenu: AirplaneMenuProvider,private sanitizer:DomSanitizer, private loadingCtrl: LoadingController, private popoverCtrl: PopoverController) {
-    // this.data = [
-    //   {airplane_name: 'King Air', number_of_seat: 8, airplane_photo: 'assets/imgs/p5.png', expanded: false},
-    //   {airplane_name: 'Pilatus', number_of_seat: 6, airplane_photo: 'assets/imgs/p6.png', expanded: false},
-    //   {airplane_name: 'Citation CJ2', number_of_seat: 4, airplane_photo: 'assets/imgs/p7.png', expanded: false},
-    //   {airplane_name: 'Phenom 100', number_of_seat: 8, airplane_photo: 'assets/imgs/p4.png', expanded: false},
-    //   {airplane_name: 'Citation Mustang', number_of_seat: 5, airplane_photo: 'assets/imgs/p4.png', expanded: false},  
-    //   {airplane_name: 'Phenom 100', number_of_seat: 9, airplane_photo: 'assets/imgs/p5.png',expanded: false}
-      
-
-
-
-    // ]
-    
+  constructor(
+    private toastCtrl: ToastController ,
+    public airplaneMenu: AirplaneMenuProvider,
+    private sanitizer:DomSanitizer, 
+    private loadingCtrl: LoadingController, 
+    private popoverCtrl: PopoverController
+  ) {
     this.getMenu()
+    this.model = {
+      name: '',
+      seats: '',
+      date: '',
+      time:'',
+      requirement:''
+  }
   }
 
   ionViewDidLoad() {
@@ -52,15 +52,18 @@ export class ReserveTablePage {
        });
   }
 
-  expandItem(item){
-    this.data.map((listItem) => {
-        if(item == listItem){
-            listItem.expanded = !listItem.expanded;
-        } else {
-            listItem.expanded = false;
-        }
-        return listItem;
-    });
+  expandedItem:boolean= false;
+  expandItem(){
+    return this.expandedItem=!this.expandedItem;
+    // this.data.map((listItem) => {
+    //     if(item == listItem){
+    //         listItem.expanded = !listItem.expanded;
+    //     } else {
+    //         listItem.expanded = false;
+    //     }
+    //     return listItem;
+    // });
+
   }
 
   getMenu(){
