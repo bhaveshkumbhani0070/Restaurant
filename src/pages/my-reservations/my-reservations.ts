@@ -10,10 +10,12 @@ import { AuthProvider } from '../../providers/auth/auth';
 export class MyReservationsPage {
 
   reservation:string="upcoming"
+  header_data:any;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public auth:AuthProvider) {
+      this.header_data={ismenu:true,ishome:false,title:"MY RESERVATIONS"};
   }
 
   ionViewDidLoad() {

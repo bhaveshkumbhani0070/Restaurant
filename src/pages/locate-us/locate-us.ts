@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular';
 
 /**
  * Generated class for the LocateUsPage page.
@@ -14,12 +14,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'locate-us.html',
 })
 export class LocateUsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  header_data:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private popoverCtrl: PopoverController) {
+      this.header_data={ismenu:true,ishome:false,title:"LOCATE US"}; 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LocateUsPage');
   }
-
+  optionsPopover(event) {
+    let popover = this.popoverCtrl.create('PopPage')
+       popover.present({
+          ev: event
+       });
+  }
 }

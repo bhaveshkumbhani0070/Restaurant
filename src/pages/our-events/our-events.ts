@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular';
 import { App, ViewController } from 'ionic-angular';
 
 @IonicPage()
@@ -9,11 +9,14 @@ import { App, ViewController } from 'ionic-angular';
 })
 export class OurEventsPage {
 
+  header_data:any;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public viewCtrl: ViewController,
-    public appCtrl: App) {
+    public appCtrl: App,
+    private popoverCtrl: PopoverController) {
+      this.header_data={ismenu:true,ishome:false,title:"OUR EVENTS"};
   }
 
   ionViewDidLoad() {
@@ -25,5 +28,12 @@ export class OurEventsPage {
   pushPage() {
     this.viewCtrl.dismiss();
     this.appCtrl.getRootNav().push('ReserveTablePage');
+  }
+
+  optionsPopover(event) {
+    let popover = this.popoverCtrl.create('PopPage')
+       popover.present({
+          ev: event
+       });
   }
 }

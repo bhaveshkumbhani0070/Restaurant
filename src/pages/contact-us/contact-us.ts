@@ -21,7 +21,7 @@ export class ContactUsPage {
   model: any = {}
   loading:any;
   tokenoneSignal:string= 'MDdmN2U1NjQtY2MwZS00YWEyLWIxMmItNWNhMGE1MmM2NjRm';	
-  
+  header_data:any;
   
   constructor(
     public http: HttpClient,
@@ -34,7 +34,8 @@ export class ContactUsPage {
                 name: '',
                 email: '',
                 txt: ''
-            }          
+            }  
+            this.header_data={ismenu:true,ishome:false,title:"CONTACT US"};        
   }
 
   ionViewDidLoad() {

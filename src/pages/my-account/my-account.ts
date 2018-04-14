@@ -17,9 +17,10 @@ import { IonicPage, LoadingController, NavController, NavParams, ToastController
 export class MyAccountPage {
   model: any = {}
   loading:any;
-  
+  header_data:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public home: HomeServiceProvider, private loadingCtrl: LoadingController, private toastCtrl: ToastController ) {
+    this.header_data={ismenu:true,ishome:false,title:"MY ACCOUNT"};
   }
 
   closeModal() {

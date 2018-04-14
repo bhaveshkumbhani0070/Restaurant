@@ -23,6 +23,7 @@ export class ReserveTablePage {
   newUrl:string;
   loading:any;
   model:any={};  
+  header_data:any;
 
   constructor(
     private toastCtrl: ToastController ,
@@ -38,7 +39,9 @@ export class ReserveTablePage {
       date: '',
       time:'',
       requirement:''
-  }
+    }
+    this.header_data={ismenu:true,ishome:false,title:"RESERVE TABLE"};
+    
   }
 
   ionViewDidLoad() {

@@ -1,17 +1,5 @@
 <ion-header>
-    <ion-navbar color="primary">
-        <button ion-button menuToggle start>
-            <ion-icon name="ios-menu-outline"></ion-icon>
-        </button>
-        <ion-title text-center>
-            <span>CONTACT US</span>
-        </ion-title>
-        <ion-buttons end>
-            <button ion-button icon-only (click)="optionsPopover($event)">
-                  <ion-icon name="ios-notifications-outline"></ion-icon>
-              </button>
-        </ion-buttons>
-    </ion-navbar>
+    <header-content [header]="header_data"></header-content>
 </ion-header>
 
 <ion-content padding>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage,NavController, NavParams,  PopoverController } from 'ionic-angular';
+
 import { AuthProvider } from '../../providers/auth/auth';
 
 /**
@@ -16,14 +17,24 @@ import { AuthProvider } from '../../providers/auth/auth';
 })
 export class TackAwayPage {
 
+  header_data:any;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public auth: AuthProvider) {
+    public auth: AuthProvider,
+    private popoverCtrl: PopoverController
+  ) {
+    this.header_data={ismenu:true,ishome:false,title:"TAKE AWAY ORDER"};
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TackAwayPage');
+  }
+  optionsPopover(event) {
+    let popover = this.popoverCtrl.create('PopPage')
+       popover.present({
+          ev: event
+       });
   }
 
 }

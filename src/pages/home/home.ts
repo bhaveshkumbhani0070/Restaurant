@@ -38,7 +38,7 @@ export class HomePage {
   
   offerPage = 'PromotionPage';
   ourMenuPage = 'OurMenuPage';
-
+  header_data:any;
   
   constructor(
     private toastCtrl: ToastController , 
@@ -48,7 +48,8 @@ export class HomePage {
     private popoverCtrl: PopoverController,
     public navCtrl: NavController
   ) {
-    this.getBanners()
+    this.getBanners();
+    this.header_data={ismenu:true,ishome:false,title:"RESTAURANT APP"}; 
   }
 
   ionViewDidLoad() {

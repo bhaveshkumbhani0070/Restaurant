@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { ReserveTablePage } from './reserve-table';
 import { AccordingComponentModule } from '../../components/accordion/accordion.module';
+import {HeaderContentComponentModule} from '../../components/header-content/header-content.module';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import { AccordingComponentModule } from '../../components/accordion/accordion.m
   ],
   imports: [
     IonicPageModule.forChild(ReserveTablePage),
-    AccordingComponentModule
+    AccordingComponentModule,
+    HeaderContentComponentModule
   ],
 })
 export class ReserveTablePageModule {}

@@ -16,8 +16,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class OurMenuPage {
 
   menu:string="food";
-  
+  header_data:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.header_data={ismenu:true,ishome:false,title:"OUR MENU"};
   }
 
   ionViewDidLoad() {
