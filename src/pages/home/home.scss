@@ -30,18 +30,54 @@ page-home {
         -o-background-size: cover;
         background-size: cover;
     }
-    .options {
-        background-color: rgba(193, 28, 28, 0.7);
-        border: 2px solid white;
-        height: 100%;
-        text-align: center;
-        position: relative;
-        width: 183px !important;
-        left: calc(-180px + 99%);
-        margin-top: 0px;
-    }
+    // .options {
+    //     background-color: rgba(193, 28, 28, 0.7);
+    //     border: 2px solid white;
+    //     height: 100%;
+    //     text-align: center;
+    //     position: relative;
+    //     width: 183px !important;
+    //     margin-top: 0px;
+    //     left: calc(-180px + 92%) !important;
+    // }
     // .grid[no-padding] > .row > .col {
     //   //  padding: 0;
     // //    border: 1.5px solid white;
     // }
+}
+
+.platform-android {
+    page-home {
+        .options {
+            background-color: rgba(193, 28, 28, 0.7);
+            border: 2px solid white;
+            height: 100%;
+            text-align: center;
+            position: relative;
+            width: 183px !important;
+            margin-top: 0px;
+            left: calc(-180px + 99%) !important;
+        }
+        .scroll-content {
+            margin-bottom: 44px !important;
+        }
+    }
+}
+
+.platform-ios {
+    page-home {
+        .options {
+            background-color: rgba(193, 28, 28, 0.7);
+            border: 2px solid white;
+            height: 100%;
+            text-align: center;
+            position: relative;
+            width: 183px !important;
+            margin-top: 0px;
+            left: calc(-180px + 92%) !important;
+        }
+        .scroll-content {
+            margin-bottom: 30px !important;
+        }
+    }
 }
