@@ -25,19 +25,16 @@ export class MenuPage {
  
   pages: PageInterface[] = [
     // , tabComponent: 'NotificationsPage', index: 3,
-    { title: 'Reserve-Table', pageName: 'ReserveTablePage',  icon: 'md-jet' },
-    { title: 'My Reservations', pageName: 'MyReservationsPage', icon: 'calendar' },
-    { title: 'My Account', pageName: 'MyAccountPage', icon: 'md-notifications-outline' },
-    { title: 'Our Offers', pageName: 'OurOffersPage',  icon: 'md-star-outline' },
-    { title: 'Notifications', pageName: 'NotificationsPage',  icon: 'md-document' },
-    { title: 'Our Events', pageName: 'OurEventsPage',  icon: 'md-notifications-outline' },
-    { title: 'Social Feeds', pageName: 'SocialFeedsPage',  icon: 'md-star-outline' },
-    { title: 'Refer A Friend', pageName: 'ReferFriendPage',  icon: 'md-document' },
-    { title: 'Locate Us', pageName: 'LocateUsPage',  icon: 'md-document' }
+    { title: 'Reserve Table', pageName: 'ReserveTablePage',index:1,  icon: '' },
+    { title: 'My Reservations', pageName: 'MyReservationsPage', index:4,icon: 'calendar' },
+    { title: 'My Account', pageName: 'MyAccountPage', index:5, icon: 'md-person-add' },
+    { title: 'Our Offers', pageName: 'OurOffersPage',index:6,  icon: 'md-document' },
+    { title: 'Notifications', pageName: 'NotificationsPage',index:3,  icon: 'md-notifications-outline' },
+    { title: 'Our Events', pageName: 'OurEventsPage', index:7, icon: 'md-calendar' },
+    { title: 'Social Feeds', pageName: 'SocialFeedsPage', index:8, icon: 'md-paper' },
+    { title: 'Refer A Friend', pageName: 'ReferFriendPage', index:9, icon: 'md-share' },
+    { title: 'Locate Us', pageName: 'LocateUsPage', index:2, icon: 'md-pin' }
   ];
-
-
-  
  
   constructor(public navCtrl: NavController, public auth: AuthProvider) { }
  
@@ -50,18 +47,17 @@ export class MenuPage {
     }
  
     // The active child nav is our Tabs Navigation
-    if (this.nav.getActiveChildNavs().length && page.index != undefined) {
+    if (this.nav.getActiveChildNavs() && page.index != undefined) {
+      console.log('getactive');
       this.nav.getActiveChildNavs()[0].select(page.index);
     } else {
+      console.log('nav push');
       // Tabs are not active, so reset the root page 
       // In this case: moving to or from SpecialPage
       this.nav.push(page.pageName, params);
     }
   }
 
-  openLoginPage(){
-    this.nav.push('LoginPage');
-  }
  
   isActive(page: PageInterface) {
     // Again the Tabs Navigation
@@ -79,5 +75,10 @@ export class MenuPage {
     }
     return;
   }
+
+  openLoginPage(){
+    this.nav.push('LoginPage');
+  }
+ 
  
 }

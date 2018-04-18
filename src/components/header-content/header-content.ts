@@ -21,10 +21,11 @@ export class HeaderContentComponent {
   }
 
   optionsPopover(event) {
+    console.log('event',event);
     let popover = this.popoverCtrl.create('PopPage')
-       popover.present({
-          ev: event
-       });
+    popover.present({
+        ev: event
+    });
   }
 
 }

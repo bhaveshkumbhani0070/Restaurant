@@ -1,6 +1,12 @@
 <ion-tabs [selectedIndex]="myIndex" color="primary">
-    <ion-tab [root]="tab1Root" tabIcon="home"></ion-tab>
-    <ion-tab [root]="tab2Root" tabIcon="calendar"></ion-tab>
-    <ion-tab [root]="tab3Root" tabIcon="md-pin"></ion-tab>
-    <ion-tab [root]="tab4Root" tabIcon="notifications"></ion-tab>
+    <ion-tab root="HomePage" tabIcon="home"></ion-tab>
+    <ion-tab root="ReserveTablePage" tabIcon="calendar"></ion-tab>
+    <ion-tab root="LocateUsPage" tabIcon="md-pin"></ion-tab>
+    <ion-tab root="NotificationsPage" tabIcon="notifications"></ion-tab>
+    <ion-tab root="MyReservationsPage" show="false"></ion-tab>
+    <ion-tab root="MyAccountPage" show="false"></ion-tab>
+    <ion-tab root="OurOffersPage" show="false"></ion-tab>
+    <ion-tab root="OurEventsPage" show="false"></ion-tab>
+    <ion-tab root="SocialFeedsPage" show="false"></ion-tab>
+    <ion-tab root="ReferFriendPage" show="false"></ion-tab>
 </ion-tabs>

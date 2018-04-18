@@ -28,16 +28,7 @@ export class HomePage {
   loading:any;
   
 
-  reserveTablePage = 'ReserveTablePage';
-  tackAwayPage = 'TackAwayPage';
-  ourOffersPage = 'OurOffersPage';
-  ourEventsPage = 'OurEventsPage';
-  contactUsPage = 'ContactUsPage';
-  referFriendPage = 'ReferFriendPage';
-  ourReviewsPage = 'OurReviewsPage';
   
-  offerPage = 'PromotionPage';
-  ourMenuPage = 'OurMenuPage';
   header_data:any;
   
   constructor(

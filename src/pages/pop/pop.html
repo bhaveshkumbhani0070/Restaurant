@@ -1,8 +1,12 @@
 <ion-list>
-    <ion-list-header color="primary">Options</ion-list-header>
-    <button ion-item (tap)='myAccount("FlyingHoursPage")'>My Account</button>
-    <button ion-item (tap)="myAccount('NotificationsPage')">Notifications</button>
-    <button ion-item (tap)="myAccount('PromotionPage')">New Offers</button>
-    <button ion-item (tap)="myAccount('RequestFlightPage')">Request Flight</button>
-    
- </ion-list>
+    <!-- <ion-list-header color="primary">Options</ion-list-header> -->
+    <button ion-item (tap)="myAccount('NotificationsPage')"> 
+        <ion-icon item-start name="ios-notifications-outline" ></ion-icon>Notifications
+    </button>
+    <button ion-item (tap)="myAccount('OurOffersPage')">
+        <ion-icon item-start name="md-star-outline" ></ion-icon>New Offers
+    </button>
+    <button ion-item (tap)="myAccount('ReserveTablePage')">
+        <ion-icon item-start name="md-search" ></ion-icon>Book Table
+    </button>
+</ion-list>
