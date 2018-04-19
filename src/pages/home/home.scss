@@ -81,3 +81,21 @@ page-home {
         }
     }
 }
+
+.platform-windows {
+    page-home {
+        .options {
+            background-color: rgba(193, 28, 28, 0.7);
+            border: 2px solid white;
+            height: 100%;
+            text-align: center;
+            position: relative;
+            width: 100% !important;
+            margin-top: 0px;
+            left: -5% !important;
+        }
+        .scroll-content {
+            margin-bottom: 30px !important;
+        }
+    }
+}

@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { OneSignal } from '@ionic-native/onesignal';
 
+import { Geolocation } from '@ionic-native/geolocation';
 
 import { MyApp } from './app.component';
 import { HomeServiceProvider } from '../providers/home-service/home-service';
@@ -17,6 +18,7 @@ import { AuthProvider } from '../providers/auth/auth';
 import { PromotionProvider } from '../providers/promotion/promotion';
 import { EnquiryProvider } from '../providers/enquiry/enquiry';
 import { OneSignlProvider } from '../providers/one-signl/one-signl';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { OneSignlProvider } from '../providers/one-signl/one-signl';
   providers: [
     StatusBar,
     SplashScreen,
-
+    Geolocation,
+    
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HomeServiceProvider,
     OneSignal,
