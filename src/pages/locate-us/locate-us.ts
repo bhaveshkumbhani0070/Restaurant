@@ -42,7 +42,7 @@ export class LocateUsPage {
  
   loadMap(){
  
-    // let latLng = new google.maps.LatLng(23.022505, 72.5713621);
+    // let latLng = new google.maps.LatLng(21.214604, 72.896230);
     // let mapOptions = {
     //   center: latLng,
     //   zoom: 15,
@@ -50,9 +50,8 @@ export class LocateUsPage {
     // }
     // this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
     
-    this.geolocation.getCurrentPosition().then((position) => {
-      console.log('position',position);
-      let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    
+      let latLng = new google.maps.LatLng(21.214604, 72.896230);
       let mapOptions = {
         center: latLng,
         zoom: 15,
@@ -70,10 +69,11 @@ export class LocateUsPage {
       let content = "Restaurant";         
      
       this.addInfoWindow(marker, content);
-     
-    }, (err) => {
-      console.log(err);
-    });
+
+    // this.geolocation.getCurrentPosition().then((position) => {
+    // }, (err) => {
+    //   console.log(err);
+    // });
   }
 
   addInfoWindow(marker, content){

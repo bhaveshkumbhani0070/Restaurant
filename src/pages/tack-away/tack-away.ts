@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage,NavController, NavParams,  PopoverController } from 'ionic-angular';
-
+import { App, ViewController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 
 /**
@@ -21,6 +21,8 @@ export class TackAwayPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
+    public viewCtrl: ViewController,
+    public appCtrl: App,
     public auth: AuthProvider,
     private popoverCtrl: PopoverController
   ) {
@@ -35,6 +37,11 @@ export class TackAwayPage {
        popover.present({
           ev: event
        });
+  }
+
+  pushPage() {
+    this.viewCtrl.dismiss();
+    this.appCtrl.getRootNav().push('LoginPage');
   }
 
 }

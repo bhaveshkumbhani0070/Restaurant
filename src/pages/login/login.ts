@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { AlertController, IonicPage, LoadingController, NavController, NavParams, ToastController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { OneSignlProvider } from '../../providers/one-signl/one-signl';
+import { App, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the LoginPage page.
@@ -20,8 +21,20 @@ export class LoginPage {
 
   model: any = {};
   loading:any;
-  
-  constructor(  public home: HomeServiceProvider ,private toastCtrl: ToastController , public alertCtrl: AlertController, private loadingCtrl: LoadingController , public navCtrl: NavController, public navParams: NavParams, private auth: AuthProvider, public oneSignal: OneSignlProvider) {
+  header_data:any;
+
+  constructor( 
+     public home: HomeServiceProvider ,
+     private toastCtrl: ToastController , 
+     public alertCtrl: AlertController, 
+     private loadingCtrl: LoadingController , 
+     public navCtrl: NavController,
+     public viewCtrl: ViewController,
+    public appCtrl: App,
+      public navParams: NavParams,
+       private auth: AuthProvider,
+        public oneSignal: OneSignlProvider) {
+    this.header_data={ismenu:true,ishome:false,title:"LOGIN"};
   }
 
   ionViewDidLoad() {
@@ -113,6 +126,11 @@ export class LoginPage {
               
               console.log(error.status)
             });
+  }
+
+  signup(){
+    this.viewCtrl.dismiss();
+    this.appCtrl.getRootNav().push('ReserveTablePage');
   }
 
   presentToast(data) {
