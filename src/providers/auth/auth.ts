@@ -1,18 +1,10 @@
-
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
-
 import { SERVER_NAME } from '../server';
 
-/*
-  Generated class for the AuthProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class AuthProvider {
 
@@ -20,7 +12,8 @@ export class AuthProvider {
   }
 
   login(username: string, password: string): Observable<{}> {
-    return this.http.post(SERVER_NAME+ 'login/',  { email: username, password: password }).pipe(
+    console.log('username',username,' password',password)
+    return this.http.post(SERVER_NAME+ '/login/',  { username: username, password: password }).pipe(
       map(this.extractData),
    //   catchError(this.handleError)
     );
@@ -31,19 +24,17 @@ export class AuthProvider {
       // logged in so return true
       return true;
     }
-
     return false;
   }
 
   
   private extractData(res: any) {
-    let body = res.data.result;
-    console.log("body",body)
-    if (body ) {
-      // store user details and jwt token in local storage to keep user logged in between page refreshes
-      localStorage.setItem('token', body);
+    console.log('res',res);
+    let body = res.data;
+    if (body) {
+      localStorage.setItem('token', res.token);
+      localStorage.setItem('cust_id',res.data.cust_id);
     }
-
     return body || { };
   }
   

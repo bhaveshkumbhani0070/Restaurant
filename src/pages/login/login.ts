@@ -24,16 +24,16 @@ export class LoginPage {
   header_data:any;
 
   constructor( 
-     public home: HomeServiceProvider ,
-     private toastCtrl: ToastController , 
-     public alertCtrl: AlertController, 
-     private loadingCtrl: LoadingController , 
-     public navCtrl: NavController,
-     public viewCtrl: ViewController,
+    public home: HomeServiceProvider ,
+    private toastCtrl: ToastController , 
+    public alertCtrl: AlertController, 
+    private loadingCtrl: LoadingController , 
+    public navCtrl: NavController,
+    public viewCtrl: ViewController,
     public appCtrl: App,
-      public navParams: NavParams,
-       private auth: AuthProvider,
-        public oneSignal: OneSignlProvider) {
+    public navParams: NavParams,
+    public auth: AuthProvider,
+    public oneSignal: OneSignlProvider) {
     this.header_data={ismenu:true,ishome:false,title:"LOGIN"};
   }
 
@@ -102,28 +102,28 @@ export class LoginPage {
   }
 
   login() {
-//    this.loading = true;
     this.showLoader();
     this.auth.login(this.model.username, this.model.password)
         .subscribe(
             data => {
-              console.log(data)
-            //  this.navCtrl.push('MenuPage');
-              this.oneSignal.push(this.model.username)
-              localStorage.setItem('username', (this.model.username))
-              
-              this.navCtrl.pop();
-              this.loading.dismiss()                      
-             //   this.router.navigate([this.returnUrl]);
+              console.log('data',data);
+              this.loading.dismiss();                      
+            //  this.navCtrl.push('HomePage');
+              // this.oneSignal.push(data["username"])
+              localStorage.setItem('username', (data["username"]))
+              this.navCtrl.setRoot('HomePage');
+              // this.navCtrl.pop();
+              // this.router.navigate([this.returnUrl]);
+              // this.appCtrl.getRootNav().push('HomePage');
             },
             error => {
+              console.log('error',error);
               this.loading.dismiss() 
               if(error.status === 401) {
                 this.presentToast('Username or Password does not match');
               }else{
                 this.presentToast('Something went wrong try again!');
               }
-              
               console.log(error.status)
             });
   }

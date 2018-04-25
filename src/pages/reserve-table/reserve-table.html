@@ -24,7 +24,7 @@
         <div>
             <ion-card>
                 <accordion [expandHeight]="itemExpandHeight" [expanded]="expandedItem">
-                    <form (ngSubmit)="sendEnquiry();enquiryForm.reset()" #enquiryForm="ngForm">
+                    <form (ngSubmit)="bookTable();enquiryForm.reset()" #enquiryForm="ngForm">
                         <ion-item>
                             <ion-label color="primary" floating>
                                 Full Name
@@ -57,7 +57,7 @@
                             </ion-label>
                             <ion-input name="requirement" type="text" required [(ngModel)]="model.requirement" #name></ion-input>
                         </ion-item>
-                        <button ion-button class="submit-btn" full [disabled]="!enquiryForm.form.valid">SEND ENQUIRY</button>
+                        <button ion-button class="submit-btn" [disabled]="!enquiryForm.form.valid" full>SEND ENQUIRY</button>
                     </form>
                 </accordion>
             </ion-card>

@@ -18,6 +18,7 @@ import { AuthProvider } from '../providers/auth/auth';
 import { PromotionProvider } from '../providers/promotion/promotion';
 import { EnquiryProvider } from '../providers/enquiry/enquiry';
 import { OneSignlProvider } from '../providers/one-signl/one-signl';
+import { RestaurantProvider } from '../providers/restaurant/restaurant';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { OneSignlProvider } from '../providers/one-signl/one-signl';
     AuthProvider,
     PromotionProvider,
     EnquiryProvider,
-    OneSignlProvider
+    OneSignlProvider,
+    RestaurantProvider
   ]
 })
 export class AppModule {}

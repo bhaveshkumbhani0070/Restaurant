@@ -77,7 +77,25 @@ export class MenuPage {
   }
 
   openLoginPage(){
-    this.nav.push('LoginPage');
+    let page={ title: 'Reserve Table', pageName: 'LoginPage',index:10,  icon: '' };
+    // this.nav.push('LoginPage');
+    let params = {};
+ 
+    // The index is equal to the order of our tabs inside tabs.ts
+    if (page.index) {
+      params = { tabIndex: page.index };
+    }
+ 
+    // The active child nav is our Tabs Navigation
+    if (this.nav.getActiveChildNavs() && page.index != undefined) {
+      console.log('getactive');
+      this.nav.getActiveChildNavs()[0].select(page.index);
+    } else {
+      console.log('nav push');
+      // Tabs are not active, so reset the root page 
+      // In this case: moving to or from SpecialPage
+      this.nav.push(page.pageName, params);
+    }
   }
  
  

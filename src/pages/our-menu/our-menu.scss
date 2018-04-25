@@ -1,3 +1,9 @@
+page-our-menu {
+    ion-app.md [padding] .scroll-content {
+        padding: 0px !important;
+    }
+}
+
 .segment-button {
     color: #f6b2b5 !important;
 }
@@ -5,8 +11,6 @@
 .segment-ios .segment-button.segment-activated {
     color: white !important;
 }
-
-page-our-menu {}
 
 .animated {
     -webkit-animation-duration: 1s;
