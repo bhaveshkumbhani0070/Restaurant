@@ -1,7 +1,7 @@
-import { RestaurantProvider } from '../../providers/restaurant/restaurant';
 import { Component } from '@angular/core';
 import { IonicPage, PopoverController, ToastController } from 'ionic-angular';
 import {DomSanitizer} from '@angular/platform-browser';
+import { RestaurantProvider } from '../../providers/restaurant/restaurant';
 // LoadingController
 @IonicPage()
 @Component({

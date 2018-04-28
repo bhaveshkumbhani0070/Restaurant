@@ -9,14 +9,8 @@ import { OneSignal } from '@ionic-native/onesignal';
 import { Geolocation } from '@ionic-native/geolocation';
 
 import { MyApp } from './app.component';
-import { HomeServiceProvider } from '../providers/home-service/home-service';
-import { TipsServiceProvider } from '../providers/tips-service/tips-service';
-import { HowItServiceProvider } from '../providers/how-it-service/how-it-service';
 import { AirplaneMenuProvider } from '../providers/airplane-menu/airplane-menu';
-import { PackagesProvider } from '../providers/packages/packages';
 import { AuthProvider } from '../providers/auth/auth';
-import { PromotionProvider } from '../providers/promotion/promotion';
-import { EnquiryProvider } from '../providers/enquiry/enquiry';
 import { OneSignlProvider } from '../providers/one-signl/one-signl';
 import { RestaurantProvider } from '../providers/restaurant/restaurant';
 
@@ -40,15 +34,9 @@ import { RestaurantProvider } from '../providers/restaurant/restaurant';
     Geolocation,
     
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    HomeServiceProvider,
     OneSignal,
-    TipsServiceProvider,
-    HowItServiceProvider,
     AirplaneMenuProvider,
-    PackagesProvider,
     AuthProvider,
-    PromotionProvider,
-    EnquiryProvider,
     OneSignlProvider,
     RestaurantProvider
   ]

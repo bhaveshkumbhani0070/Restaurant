@@ -1,4 +1,3 @@
-import { HomeServiceProvider } from '../../providers/home-service/home-service';
 import { Component } from '@angular/core';
 import { IonicPage, LoadingController, NavController, NavParams, ToastController } from 'ionic-angular';
 
@@ -19,7 +18,12 @@ export class ResetPasswordPage {
   model: any = {};  
   loading:any;
   
-  constructor(public navCtrl: NavController,private toastCtrl: ToastController , public navParams: NavParams,private loadingCtrl: LoadingController ,  public home: HomeServiceProvider ) {
+  constructor(
+    public navCtrl: NavController,
+    private toastCtrl: ToastController , 
+    public navParams: NavParams,
+    private loadingCtrl: LoadingController ,  
+     ) {
   }
 
   ionViewDidLoad() {
@@ -27,20 +31,20 @@ export class ResetPasswordPage {
   }
 
   reset(){
-    this.showLoader();    
-    this.home.resetPassword(this.model).subscribe(data =>{
-      this.loading.dismiss()  
-      this.presentToast('Password has been changed');
-      this.navCtrl.pop()
-    }, error =>{
-      this.loading.dismiss()        
-      if(error.status == 401){
-        this.presentToast('Please enter the correct code');
-      }else{
-        this.presentToast('Something went wrong');
-      }
-      console.log(error)
-    })
+    // this.showLoader();    
+    // this.home.resetPassword(this.model).subscribe(data =>{
+    //   this.loading.dismiss()  
+    //   this.presentToast('Password has been changed');
+    //   this.navCtrl.pop()
+    // }, error =>{
+    //   this.loading.dismiss()        
+    //   if(error.status == 401){
+    //     this.presentToast('Please enter the correct code');
+    //   }else{
+    //     this.presentToast('Something went wrong');
+    //   }
+    //   console.log(error)
+    // })
   }
 
   presentToast(data) {

@@ -4,18 +4,19 @@
 
 
 <ion-content padding>
-    <form (ngSubmit)="sendEnquiry()" #enquiryForm="ngForm">
-        <ion-item>
+    <img class="image animated" src="assets/imgs/dp.jpg">
+    <form (ngSubmit)="updateAcc()" #enquiryForm="ngForm">
+        <!-- <ion-item>
             <ion-label color="primary" floating>First Name</ion-label>
             <ion-input name="first_name" type="text" required [(ngModel)]="model.first_name"></ion-input>
-        </ion-item>
+        </ion-item> -->
         <ion-item>
             <ion-label color="primary" floating>User Name</ion-label>
-            <ion-input name="last_name" type="text" required [(ngModel)]="model.user_name"></ion-input>
+            <ion-input name="username" type="text" required [(ngModel)]="model.username"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label color="primary" floating>Phone Number</ion-label>
-            <ion-input name="last_name" type="text" required [(ngModel)]="model.mobile"></ion-input>
+            <ion-input name="phone" type="text" required [(ngModel)]="model.phone"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label color="primary" floating>Email</ion-label>
@@ -26,7 +27,7 @@
         </span>
         <ion-item>
             <ion-label color="primary" floating>Address</ion-label>
-            <ion-input name="last_name" type="text" required [(ngModel)]="model.address"></ion-input>
+            <ion-input name="address" type="text" required [(ngModel)]="model.address"></ion-input>
         </ion-item>
         <button ion-button full class="submit-btn animated" [disabled]="!enquiryForm.form.valid">UPDATE ACCOUNT</button>
     </form>

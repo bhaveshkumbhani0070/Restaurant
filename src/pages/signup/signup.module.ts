@@ -9,7 +9,7 @@ import {HeaderContentComponentModule} from '../../components/header-content/head
   ],
   imports: [
     IonicPageModule.forChild(SignupPage),
-    HeaderContentComponentModule,
+    HeaderContentComponentModule
   ],
 })
 export class SignupPageModule {}

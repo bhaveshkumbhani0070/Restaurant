@@ -1,7 +1,6 @@
-import { HomeServiceProvider } from '../../providers/home-service/home-service';
 import { Component } from '@angular/core';
 import { IonicPage, LoadingController, NavController, NavParams, ToastController, ViewController } from 'ionic-angular';
-
+import { RestaurantProvider } from '../../providers/restaurant/restaurant';
 /**
  * Generated class for the MyAccountPage page.
  *
@@ -15,12 +14,21 @@ import { IonicPage, LoadingController, NavController, NavParams, ToastController
   templateUrl: 'my-account.html',
 })
 export class MyAccountPage {
-  model: any = {}
+  model: any={};
   loading:any;
   header_data:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public home: HomeServiceProvider, private loadingCtrl: LoadingController, private toastCtrl: ToastController ) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public viewCtrl: ViewController, 
+    private loadingCtrl: LoadingController, 
+    private toastCtrl: ToastController,
+    public restaurantProvider : RestaurantProvider 
+  ) {
     this.header_data={ismenu:true,ishome:false,title:"MY ACCOUNT"};
+    this.getCustomer();
+
   }
 
   closeModal() {
@@ -31,26 +39,13 @@ export class MyAccountPage {
     console.log('ionViewDidLoad RequestAccountPage');
   }
 
-  sendEnquiry(){
-    this.showLoader()
-    this.home.requestAccount(this.model).subscribe((data)=>{
-      this.loading.dismiss()  
-      this.presentToast('Account request has been sent!')  
-      this.viewCtrl.dismiss();
-      console.log(data) 
-    },error =>{
-      this.loading.dismiss() 
-      this.presentToast('Something went wrong try again!')       
-      console.log(error)
-    })
-  }
-
   showLoader(){
     this.loading = this.loadingCtrl.create({
         content: ''
     });
 
     this.loading.present();
+
   }
 
   presentToast(data) {
@@ -67,4 +62,27 @@ export class MyAccountPage {
     toast.present();
   }
 
+  getCustomer(){
+    this.restaurantProvider.getCustomer()
+    .subscribe(
+    data =>{
+      console.log('getCustomer',data);
+       this.model=data["data"];
+    },
+    error =>  {
+      console.log('Error',error);
+    });
+  }
+  updateAcc(){
+    console.log('updateAcc');
+    this.restaurantProvider.updateCustomer(this.model)
+      .subscribe(
+        data=>{
+          console.log('data',data);
+          this.presentToast(data["message"]);
+        },
+        error=>{
+          console.log('Error',error);
+        });
+  }
 }

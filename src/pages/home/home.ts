@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, LoadingController, PopoverController, ToastController } from 'ionic-angular';
-import { HomeServiceProvider } from '../../providers/home-service/home-service';
 import {DomSanitizer} from '@angular/platform-browser';
 import { NavController } from 'ionic-angular';
 
@@ -8,7 +7,7 @@ import { NavController } from 'ionic-angular';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  providers: [HomeServiceProvider]
+  providers: []
 })
 export class HomePage {
   Arr = Array; //Array type captured in a variable
@@ -33,7 +32,6 @@ export class HomePage {
   
   constructor(
     private toastCtrl: ToastController , 
-    public home: HomeServiceProvider,
     private sanitizer:DomSanitizer,
     private loadingCtrl: LoadingController, 
     private popoverCtrl: PopoverController,

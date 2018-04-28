@@ -2,4 +2,14 @@ page-my-account {
     .submit-btn {
         background-color: #C62828 !important;
     }
+    .image {
+        height: 25vw;
+        width: 25vw;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        box-shadow: 0 0 5px gray;
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

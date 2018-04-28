@@ -34,6 +34,7 @@ export class AuthProvider {
     if (body) {
       localStorage.setItem('token', res.token);
       localStorage.setItem('cust_id',res.data.cust_id);
+      localStorage.setItem('rest_id',res.data.rest_id);
     }
     return body || { };
   }

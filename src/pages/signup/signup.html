@@ -6,13 +6,40 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>signup</ion-title>
-  </ion-navbar>
+    <ion-header>
+        <header-content [header]="header_data"></header-content>
+    </ion-header>
 
 </ion-header>
 
 
 <ion-content padding>
+    <form #loginForm="ngForm" (ngSubmit)="sendOTP()" autocomplete="off" style="margin-top:30%;">
+        <ion-row justify-content-center align-items-center>
+            <ion-col>
+                <ion-list inset>
+                    <ion-item>
+                        <!-- <ion-icon name="md-key"></ion-icon>   -->
+                        <ion-label floating>
+                            Phone Number
+                        </ion-label>
+                        <ion-input name="phone" id="passwordField" type="text" required [(ngModel)]="model.phone"></ion-input>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
 
+        <ion-row>
+            <ion-col>
+                <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+                <button ion-button class="submit-btn" full type="submit" [disabled]="!loginForm.form.valid">Send OTP
+            </button>
+            </ion-col>
+        </ion-row>
+        <ion-row justify-content-center align-items-center>
+            <ion-col text-center style="font-size: 18px;">
+                This business has restricted new user signups to a radius of 25KM from their business location
+            </ion-col>
+        </ion-row>
+    </form>
 </ion-content>

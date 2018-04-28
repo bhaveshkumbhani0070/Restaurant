@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular';
 import { App, ViewController } from 'ionic-angular';
+import { RestaurantProvider } from '../../providers/restaurant/restaurant';
 
 @IonicPage()
 @Component({
@@ -15,8 +16,11 @@ export class OurEventsPage {
     public navParams: NavParams,
     public viewCtrl: ViewController,
     public appCtrl: App,
-    private popoverCtrl: PopoverController) {
+    private popoverCtrl: PopoverController,
+    public restaurantProvider : RestaurantProvider
+  ) {
       this.header_data={ismenu:true,ishome:false,title:"OUR EVENTS"};
+      this.getEvents();
   }
 
   ionViewDidLoad() {
@@ -35,5 +39,16 @@ export class OurEventsPage {
        popover.present({
           ev: event
        });
+  }
+
+  getEvents(){
+    this.restaurantProvider.getEvents()
+    .subscribe(
+    data =>{
+      console.log('getEvents',data);
+    },
+    error =>  {
+      console.log('Error',error);
+    });
   }
 }

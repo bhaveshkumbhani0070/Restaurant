@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular';
-/**
- * Generated class for the OurReviewsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { RestaurantProvider } from '../../providers/restaurant/restaurant';
 
 @IonicPage()
 @Component({
@@ -15,10 +10,14 @@ import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-an
 export class OurReviewsPage {
 
   header_data:any;
-  constructor(public navCtrl: NavController, 
+  constructor(
+    public navCtrl: NavController, 
     public navParams: NavParams,
-    private popoverCtrl: PopoverController) {
+    private popoverCtrl: PopoverController,
+    public restaurantProvider : RestaurantProvider
+  ) {
       this.header_data={ismenu:true,ishome:false,title:"CUSTOMER REVIEWS"};
+      this.getReviews();
   }
 
   ionViewDidLoad() {
@@ -29,6 +28,17 @@ export class OurReviewsPage {
        popover.present({
           ev: event
        });
+  }
+
+  getReviews(){
+    this.restaurantProvider.getReviews()
+    .subscribe(
+    data =>{
+      console.log('getReviews',data);
+    },
+    error =>  {
+      console.log('Error',error);
+    });
   }
 
 }

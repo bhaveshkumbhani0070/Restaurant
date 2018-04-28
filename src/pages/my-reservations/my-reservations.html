@@ -16,17 +16,27 @@
     </div>
 
     <!-- *ngIf="auth.isAuthenticated()" -->
-    <div [ngSwitch]="menu">
+    <div [ngSwitch]="reservation">
         <ion-list *ngSwitchCase="'history'">
-            <!-- <p>food</p> -->
             <div class="animated">
-                <button *ngIf="!auth.isAuthenticated()" ion-button (click)="pushPage()" class="submit-btn" full>Login to access this section</button>
+                <button *ngIf="!auth.isAuthenticated()" ion-button navPush='LoginPage' class="submit-btn" full>Login to access this section</button>
+                <div *ngFor="let item of upData">
+                    <div *ngIf="item.status=='requested'">
+                        <span> data {{item.status}}</span>
+                    </div>
+                </div>
             </div>
+
         </ion-list>
 
         <ion-list *ngSwitchCase="'upcoming'">
             <div class="animated">
-                <button *ngIf="!auth.isAuthenticated()" ion-button (click)="pushPage()" class="submit-btn" full>Login to access this section</button>
+                <button *ngIf="!auth.isAuthenticated()" ion-button navPush='LoginPage' class="submit-btn" full>Login to access this section</button>
+                <div *ngFor="let item of upData">
+                    <div *ngIf="item.status!='requested'">
+                        <span> data {{item.status}}</span>
+                    </div>
+                </div>
             </div>
         </ion-list>
     </div>

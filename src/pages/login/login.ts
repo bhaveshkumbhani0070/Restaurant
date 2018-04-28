@@ -1,4 +1,3 @@
-import { HomeServiceProvider } from '../../providers/home-service/home-service';
 import { Component } from '@angular/core';
 import { AlertController, IonicPage, LoadingController, NavController, NavParams, ToastController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
@@ -24,7 +23,6 @@ export class LoginPage {
   header_data:any;
 
   constructor( 
-    public home: HomeServiceProvider ,
     private toastCtrl: ToastController , 
     public alertCtrl: AlertController, 
     private loadingCtrl: LoadingController , 
@@ -64,21 +62,16 @@ export class LoginPage {
           text: 'Ok',
           handler: data => {
             console.log(data)
-            this.home.forgotPassword(data).subscribe(data=>{
-              if(!data){
-                this.presentToast('Please enter valid email');
-              }
-              this.navCtrl.push('ResetPasswordPage')
-              this.presentToast('Password Reset Code Has Been Sent To Email');
-            },error =>{
-              console.log(error)
-              this.presentToast('Account with this email is not present');
-             // this.navCtrl.push('ResetPasswordPage')
-              // this.presentToast("Email not exist");
-            })
-        //    console.log('push')
-        //    this.navCtrl.push('ResetPasswordPage')
-        //    this.presentToast('Password Reset Code Has Been Sent To Email');
+            // this.home.forgotPassword(data).subscribe(data=>{
+            //   if(!data){
+            //     this.presentToast('Please enter valid email');
+            //   }
+            //   this.navCtrl.push('ResetPasswordPage')
+            //   this.presentToast('Password Reset Code Has Been Sent To Email');
+            // },error =>{
+            //   console.log(error)
+            //   this.presentToast('Account with this email is not present');
+            // })
             
           }
         }
